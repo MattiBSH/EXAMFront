@@ -3,7 +3,8 @@ import {
     userInfoEndpoint,
     adminInfoEndpoint,
     defaultEndpoint,
-    loginEndpoint} from "./settings";
+    loginEndpoint,
+    getAll,add,booking} from "./settings";
 
  
 function handleHttpErrors(res) {
@@ -56,6 +57,33 @@ const fetchDefault = (callback) => {
    
 }
 
+const fetchHotels = (callback) => {
+  const options = makeOptions("GET", true);
+  return fetch(mainURL+getAll, options)
+  .then(handleHttpErrors)
+  .then((data) => {
+
+      callback(data);
+    });
+};
+const fetchBookings = (callback,name) => {
+  const options = makeOptions("GET", true);
+  return fetch(mainURL+booking+name, options)
+  .then(handleHttpErrors)
+  .then((data) => {
+
+      callback(data);
+    });
+};
+const addIt = (booking) => {
+  const options = makeOptions("POST",true,booking);
+  return fetch(mainURL+ add, options)
+  .then(handleHttpErrors)
+  .then((data) => {
+
+      console.log(mainURL+ add, options);
+    });
+};
 
 const makeOptions= (method,addToken,body) =>{
    var opts = {
@@ -82,7 +110,9 @@ const makeOptions= (method,addToken,body) =>{
      logout,
      fetchDataUser,
      fetchDataAdmin,
-     fetchDefault
+     fetchDefault,
+     fetchHotels,
+     addIt,fetchBookings
  }
 }
 const facade = apiFacade();

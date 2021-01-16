@@ -5,18 +5,17 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
   NavLink,
   useLocation,
-  useParams,
-  Prompt,
-  useRouteMatch,
+  
   useHistory,
 } from "react-router-dom";
 import Login from "./Login";
 import facade from "./apiFacade";
 import LoggedIn from "./LoggedIn";
 import LoginForm from "./loginForm";
+import FirstPage from "./FirstPage";
+import SecondPage from "./SecondPage";
 
 function App() {
   const [errorMes, setErrorMes] = useState("");
@@ -59,8 +58,13 @@ function App() {
         </Route>
         <Route path="/page3">
           <User />
+          <FirstPage/>
         </Route>
         <Route path="/page4">
+          <User />
+          <SecondPage/>
+        </Route>
+        <Route path="/page5">
           <Admin />
         </Route>
         <Route path="/login">
@@ -84,13 +88,7 @@ function App() {
     </div>
   );
 }
-{
-  /* <Login
-            loginMsg={loggedIn ? "Logout" : "Login"}
-            loggedIn={loggedIn}
-            setLoginStatus={setLoginStatus}
-          /> */
-}
+
 
 function FetchDefault() {
   const [array, setArray] = useState([]);

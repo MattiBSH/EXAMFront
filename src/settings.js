@@ -5,11 +5,13 @@ const userInfoEndpoint = "/api/info/user";
 const adminInfoEndpoint = "/api/info/admin";
 const defaultEndpoint = "/api/default";
 const loginEndpoint = "/api/login";
-
+const getAll="/api/default/hotels";
+const add="/api/default";
+const booking="/api/default/bookings/"
 export {
     mainURL,
     userInfoEndpoint,
     adminInfoEndpoint,
     defaultEndpoint,
-    loginEndpoint
+    loginEndpoint,getAll,add,booking
 };
