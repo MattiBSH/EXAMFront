@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import React, { useEffect, useState } from "react";
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,7 +17,7 @@ import LoggedIn from "./LoggedIn";
 import LoginForm from "./loginForm";
 import FirstPage from "./FirstPage";
 import SecondPage from "./SecondPage";
-
+import Admin2 from "./Admin";
 function App() {
   const [errorMes, setErrorMes] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
@@ -66,6 +67,7 @@ function App() {
         </Route>
         <Route path="/page5">
           <Admin />
+          <Admin2/>
         </Route>
         <Route path="/login">
           {!loggedIn ? (
@@ -137,6 +139,11 @@ function Header({ loggedIn, loginMsg }) {
           <li>
             <NavLink exact activeClassName="active" to="/page4">
               Page 4
+            </NavLink>
+          </li>
+          <li>
+            <NavLink exact activeClassName="active" to="/page5">
+              Admin
             </NavLink>
           </li>
         </>

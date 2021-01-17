@@ -23,7 +23,7 @@ function FirstPage() {
                 console.log(city);
         }
   return (
-    <div>
+    <div align="center">
       <h1>All hotels</h1>
       <input onChange={handleChange}></input>
       <table>
@@ -39,9 +39,9 @@ function FirstPage() {
          
       })}
       </table>
-      Click this for specified city<button onClick={all}></button>
+      <button onClick={all}>Click this for specified city</button><br/>
       
-      Click this for all<button onClick={all}></button>
+      <button onClick={all}>Click this for all</button><br/>
 
       <table>
       {arr.map(x=>{

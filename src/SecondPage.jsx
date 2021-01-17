@@ -18,8 +18,6 @@ function SecondPage() {
        
         setName2(evt.target.value);
       };
-
-
         function handleSubmit(){
             console.log(facade.addIt);
             facade.addIt(booking);

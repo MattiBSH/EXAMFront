@@ -4,7 +4,7 @@ import {
     adminInfoEndpoint,
     defaultEndpoint,
     loginEndpoint,
-    getAll,add,booking} from "./settings";
+    getAll,add,booking,bookingad,del,put} from "./settings";
 
  
 function handleHttpErrors(res) {
@@ -75,6 +75,32 @@ const fetchBookings = (callback,name) => {
       callback(data);
     });
 };
+const fetchAdmin = (callback,name) => {
+  const options = makeOptions("GET", true);
+  return fetch(mainURL+bookingad+name, options)
+  .then(handleHttpErrors)
+  .then((data) => {
+      callback(data);
+      console.log(mainURL+bookingad+name);
+    });
+};
+const putIt = (booking) => {
+  const options = makeOptions("PUT", true,booking);
+  return fetch(mainURL+put, options)
+  .then(handleHttpErrors)
+  .then((data) => {
+    });
+};
+const delIt = (name) => {
+  const options = makeOptions("DELETE", true);
+  return fetch(mainURL+del+name, options)
+  .then(handleHttpErrors)
+  .then((data) => {
+      console.log(name);
+      console.log(mainURL+del+name);
+      
+    });
+};
 const addIt = (booking) => {
   const options = makeOptions("POST",true,booking);
   return fetch(mainURL+ add, options)
@@ -112,7 +138,7 @@ const makeOptions= (method,addToken,body) =>{
      fetchDataAdmin,
      fetchDefault,
      fetchHotels,
-     addIt,fetchBookings
+     addIt,fetchBookings,fetchAdmin,delIt,putIt
  }
 }
 const facade = apiFacade();
