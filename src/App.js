@@ -54,9 +54,7 @@ function App() {
         <Route path="/page1">
           <FetchDefault />
         </Route>
-        <Route path="/page2">
-          <Placeholder />
-        </Route>
+        
         <Route path="/page3">
           <User />
           <FirstPage/>
@@ -121,24 +119,20 @@ function Header({ loggedIn, loginMsg }) {
       </li>
       <li>
         <NavLink activeClassName="active" to="/page1">
-          Page 1
+          Test server up
         </NavLink>
       </li>
-      <li>
-        <NavLink activeClassName="active" to="/page2">
-          Page2
-        </NavLink>
-      </li>
+      
       {loggedIn && (
         <>
           <li>
             <NavLink activeClassName="active" to="/page3">
-              Page 3
+              See Hotels
             </NavLink>
           </li>
           <li>
             <NavLink exact activeClassName="active" to="/page4">
-              Page 4
+              Add Booking / see Booking
             </NavLink>
           </li>
           <li>
@@ -169,16 +163,12 @@ function NoMatch() {
 function Home() {
   return (
     <>
-      <h3>Use instructions</h3>
+    <div align="center">
+      <h1>Hotel</h1>
       <p>
-        In settings.js, change the URL's to match the current project.<br/>
-        Refactor navlinks to match project domain.<br/>
-        Page 1 diplayes fetched results from default endpoint in backend.<br/>
-        Page 2 is a blank slate. <br/>
-        Login page allows a user to login, if username and password is in the database.<br/>
-        Page 3 (after login) shows info about the user.<br/>
-        Page 4 (after login) shows info about admin user.
+        <h4>1 day hotel booking app</h4>
       </p>
+      </div>
     </>
   );
 }
